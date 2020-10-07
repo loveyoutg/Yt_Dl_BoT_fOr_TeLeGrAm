@@ -92,6 +92,7 @@ def get_duration(filepath): # get duration in seconds
         if line.rfind(b"Duration") > 0:
             duration = str(re.findall(b"Duration: (\d+:\d+:[\d.]+)", line)[0])
     return 3600 * int(duration[2: 4]) + 60 * int(duration[5: 7]) + int(duration[8: 10])
+
 def check_dimension(f): # if f is bigger than 50MB split it in subvideos
     if os.path.getsize(f) > 50 * 1024 * 1023:
         duration = get_duration(f)
